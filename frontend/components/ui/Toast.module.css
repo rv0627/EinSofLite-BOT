@@ -1,0 +1,80 @@
+.container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  pointer-events: auto;
+  animation: toastSlideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+  min-width: 280px;
+  max-width: 420px;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.message {
+  line-height: 1.4;
+}
+
+/* Variants */
+.success {
+  border-color: var(--accent-green-dim);
+}
+.success .icon {
+  background: var(--accent-green);
+  color: #000;
+}
+
+.error {
+  border-color: var(--accent-red-dim);
+}
+.error .icon {
+  background: var(--accent-red);
+  color: #fff;
+}
+
+.info {
+  border-color: var(--accent-cyan-dim);
+}
+.info .icon {
+  background: var(--accent-cyan);
+  color: #000;
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}

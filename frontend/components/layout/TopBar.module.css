@@ -1,0 +1,161 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-width);
+  right: 0;
+  height: var(--topbar-height);
+  background: var(--bg-deepest);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 99;
+  backdrop-filter: blur(12px);
+  transition: left var(--transition-base), padding var(--transition-base);
+}
+
+.menuButton {
+  display: none;
+}
+
+/* --- Search --- */
+.searchWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 8px 18px;
+  min-width: 320px;
+  transition: border-color var(--transition-fast);
+}
+
+.searchWrap:focus-within {
+  border-color: var(--accent-cyan-dim);
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.searchIcon {
+  color: var(--text-muted);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  background: transparent;
+  color: var(--text-primary);
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+.searchInput::placeholder {
+  color: var(--text-muted);
+}
+
+/* --- Right Actions --- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.iconBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  transition: all var(--transition-fast);
+}
+
+.iconBtn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* --- User Profile --- */
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 8px;
+  padding-left: 16px;
+  border-left: 1px solid var(--border-subtle);
+}
+
+.userInfo {
+  text-align: right;
+}
+
+.userName {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.userRole {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--bg-deepest);
+  border: 2px solid var(--accent-cyan-dim);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .topbar {
+    left: 0;
+    padding: 0 16px;
+  }
+  
+  .menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 12px;
+  }
+  
+  .searchWrap {
+    display: none;
+  }
+  
+  .userSection {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+  
+  .userInfo {
+    display: none;
+  }
+  
+  .actions {
+    gap: 4px;
+  }
+}

@@ -1,0 +1,45 @@
+.layoutWrap {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-base);
+  position: relative;
+}
+
+.mainContent {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--topbar-height);
+  flex: 1;
+  padding: 24px;
+  min-height: calc(100vh - var(--topbar-height));
+  transition: margin-left var(--transition-base), padding var(--transition-base);
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .mainContent {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+    backdrop-filter: blur(2px);
+    animation: fadeIn var(--transition-fast) ease-in-out;
+  }
+}

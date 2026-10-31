@@ -1,0 +1,268 @@
+.container {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.gatewayStatus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent-green);
+}
+
+.gatewayDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+  animation: gatewayPulse 2s ease-in-out infinite;
+}
+
+@keyframes gatewayPulse {
+  0%, 100% { box-shadow: 0 0 8px var(--accent-green); }
+  50% { box-shadow: 0 0 20px var(--accent-green); }
+}
+
+/* --- Topology Layout --- */
+.topology {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  min-height: 200px;
+  position: relative;
+}
+
+.sourceColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+}
+
+.connectionArea {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-width: 80px;
+}
+
+/* --- Source Node Card --- */
+.sourceNode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  min-width: 170px;
+  transition: all var(--transition-base);
+  animation: fadeIn 0.5s ease both;
+}
+
+.sourceNode:nth-child(1) { animation-delay: 0.1s; }
+.sourceNode:nth-child(2) { animation-delay: 0.2s; }
+.sourceNode:nth-child(3) { animation-delay: 0.3s; }
+
+.sourceNode:hover {
+  border-color: var(--accent-cyan-dim);
+  background: var(--bg-hover);
+  transform: translateX(4px);
+}
+
+.sourceColor {
+  width: 4px;
+  height: 32px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.sourceColor.cyan { background: var(--accent-cyan); }
+.sourceColor.green { background: var(--accent-green); }
+.sourceColor.amber { background: var(--accent-amber); }
+.sourceColor.red { background: var(--accent-red); }
+.sourceColor.purple { background: var(--accent-purple); }
+
+.sourceInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+}
+
+.sourceName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sourceDesc {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* --- Central Hub --- */
+.centralHub {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--accent-cyan-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px var(--accent-cyan-dim), 0 0 40px var(--accent-cyan-glow);
+  z-index: 3;
+  animation: hubPulse 3s ease-in-out infinite;
+  position: relative;
+  color: var(--accent-cyan);
+}
+
+.centralHub::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  border: 1px dashed var(--accent-cyan-dim);
+  animation: hubRing 6s linear infinite;
+  pointer-events: none;
+}
+
+.hubIcon {
+  animation: pulseIcon 2s ease-in-out infinite;
+}
+
+@keyframes hubPulse {
+  0%, 100% { box-shadow: 0 0 15px var(--accent-cyan-dim); }
+  50% { box-shadow: 0 0 30px var(--accent-cyan); }
+}
+
+@keyframes hubRing {
+  0% { transform: translate(-50%, -50%) rotate(0deg); opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) rotate(360deg); opacity: 0.5; }
+}
+
+@keyframes pulseIcon {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* --- Connection Lines (CSS-based) --- */
+.connectionLine {
+  position: absolute;
+  height: 1px;
+  top: 50%;
+  left: 0;
+  right: 0;
+  opacity: 0.3;
+}
+
+.lineLeft {
+  background: linear-gradient(90deg, transparent, var(--accent-red));
+}
+
+.lineRight {
+  background: linear-gradient(90deg, var(--accent-cyan), transparent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Dynamic States --- */
+
+/* Gateway offline */
+.gatewayDot.offline {
+  background: var(--accent-red);
+  box-shadow: 0 0 8px var(--accent-red);
+  animation: none;
+}
+
+.gatewayDot.online {
+  background: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+  animation: gatewayPulse 2s ease-in-out infinite;
+}
+
+/* Connection line active */
+.lineLeft.lineActive {
+  opacity: 0.5;
+  background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+  background-size: 200% 100%;
+  animation: connectionFlowLeft 3s linear infinite;
+}
+
+.lineRight.lineActive {
+  opacity: 0.6;
+  background: linear-gradient(90deg, var(--accent-cyan-dim), var(--accent-cyan), var(--accent-cyan-dim));
+  background-size: 200% 100%;
+  animation: connectionFlowRight 2s linear infinite;
+}
+
+@keyframes connectionFlowLeft {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes connectionFlowRight {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Hub online glow */
+.hubOnline {
+  box-shadow: 0 0 20px var(--accent-cyan-dim), 0 0 40px var(--accent-cyan-glow);
+  border-color: var(--accent-cyan);
+}
+
+/* Source node skeleton */
+.sourceNodeSkeleton {
+  min-width: 170px;
+  height: 52px;
+  background: linear-gradient(
+    90deg,
+    var(--bg-elevated) 25%,
+    var(--bg-hover) 50%,
+    var(--bg-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+

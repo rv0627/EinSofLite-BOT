@@ -1,0 +1,562 @@
+.page {
+  display: grid;
+  gap: 20px;
+  animation: fadeIn 0.5s ease both;
+}
+
+/* ── Stock Header ── */
+.stockHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.breadcrumb {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb span {
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+.breadcrumbSep {
+  opacity: 0.4;
+}
+
+.stockName {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tickerBadge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  letter-spacing: 0.04em;
+}
+
+.priceGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.priceCard {
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  min-width: 100px;
+}
+
+.priceLabel {
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.priceValue {
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent-cyan);
+}
+
+.priceCard.negative .priceValue {
+  color: var(--accent-red);
+}
+
+/* ── Main Layout ── */
+.mainArea {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── Chart Section ── */
+.chartSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chartToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+}
+
+.intervalTabs {
+  display: flex;
+  gap: 2px;
+}
+
+.intervalTab {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.intervalTab:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.intervalTab.active {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+
+.chartControls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.chartControl {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+
+.chartControl:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.marketLive {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── Candlestick Chart Area ── */
+.chartContainer {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.candlestickArea {
+  width: 100%;
+  height: 260px;
+  position: relative;
+}
+
+.priceTag {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  background: var(--accent-cyan);
+  color: var(--bg-deepest);
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.volumeArea {
+  width: 100%;
+  height: 80px;
+  margin-top: 8px;
+  border-top: 1px dashed var(--border-subtle);
+  padding-top: 8px;
+}
+
+
+
+/* ── Right Sidebar ── */
+.rightPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Data Quality Card ── */
+.dataQualityCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  text-align: center;
+}
+
+.dqHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.dqIcon {
+  color: var(--accent-cyan);
+}
+
+.confidenceRing {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 12px;
+  position: relative;
+}
+
+.confidenceValue {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.confidencePercent {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1;
+}
+
+.confidenceLabel {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+.anomalyRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.anomalyLabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.anomalyBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(255, 23, 68, 0.15);
+  color: var(--accent-red);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Event Cards ── */
+.eventCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  transition: all var(--transition-fast);
+}
+
+.eventCard:hover {
+  border-color: var(--border-accent);
+}
+
+.eventIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.eventIcon.warning {
+  background: rgba(255, 171, 0, 0.15);
+  color: var(--accent-amber);
+}
+
+.eventIcon.info {
+  background: rgba(0, 229, 255, 0.15);
+  color: var(--accent-cyan);
+}
+
+.eventTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.eventDesc {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Sentiment Card ── */
+.sentimentCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.sentimentTitle {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sentimentScores {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 10px;
+}
+
+.sentimentScore {
+  text-align: center;
+}
+
+.scoreValue {
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1;
+}
+
+.scoreValue.bullish {
+  color: var(--accent-cyan);
+}
+
+.scoreValue.bearish {
+  color: var(--accent-red);
+}
+
+.scoreLabel {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.sentimentBar {
+  display: flex;
+  height: 5px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin: 12px 0 14px;
+}
+
+.sentimentBarFill {
+  height: 100%;
+}
+
+.sentimentBarFill.bullish {
+  background: var(--accent-cyan);
+}
+
+.sentimentBarFill.bearish {
+  background: var(--accent-red);
+}
+
+.sentimentMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.metaLabel {
+  color: var(--text-secondary);
+}
+
+.metaValue {
+  font-weight: 600;
+}
+
+.metaValue.positive {
+  color: var(--accent-green);
+}
+
+.metaValue.notable {
+  color: var(--accent-amber);
+}
+
+/* ── Market Execution Card ── */
+.executionCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.executionTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.executionButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.buyBtn, .sellBtn {
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  transition: all var(--transition-base);
+}
+
+.buyBtn {
+  background: rgba(0, 229, 255, 0.15);
+  color: var(--accent-cyan);
+  border: 1px solid var(--accent-cyan-dim);
+}
+
+.buyBtn:hover {
+  background: rgba(0, 229, 255, 0.25);
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.sellBtn {
+  background: rgba(255, 23, 68, 0.15);
+  color: var(--accent-red);
+  border: 1px solid var(--accent-red-dim);
+}
+
+.sellBtn:hover {
+  background: rgba(255, 23, 68, 0.25);
+  box-shadow: 0 0 15px rgba(255, 23, 68, 0.2);
+}
+
+.alertBtn {
+  width: 100%;
+  padding: 9px 16px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  transition: all var(--transition-base);
+}
+
+.alertBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-cyan-dim);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .mainArea {
+    grid-template-columns: 1fr;
+  }
+  .rightPanel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .stockHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rightPanel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

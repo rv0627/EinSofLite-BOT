@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+celery
+redis
+sqlalchemy
+alembic
+psycopg2-binary
+requests
+yfinance
+numpy
+pandas
+pytest
+httpx
+python-dotenv
+fpdf2

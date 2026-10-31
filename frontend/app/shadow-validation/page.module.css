@@ -1,0 +1,269 @@
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+.activePeriodCard, .inactivePeriodCard {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #334155;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.cardHeader h2 {
+  font-size: 1.5rem;
+  color: #f8fafc;
+}
+
+.badgeRunning {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+.progressSection {
+  margin-bottom: 2rem;
+}
+
+.progressInfo {
+  display: flex;
+  justify-content: space-between;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.progressBar {
+  width: 100%;
+  height: 12px;
+  background-color: #334155;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: #3b82f6;
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+.latestStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.statBox {
+  background: #0f172a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.statValue {
+  color: #f8fafc;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.positive {
+  color: #4ade80;
+}
+
+.negative {
+  color: #f87171;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background: #3b82f6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.btnSecondary {
+  background: #475569;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btnSecondary:hover:not(:disabled) {
+  background: #334155;
+}
+
+.btnDanger {
+  background: transparent;
+  color: #f87171;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  border: 1px solid #ef4444;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnDanger:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.btnPrimary:disabled, .btnSecondary:disabled, .btnDanger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  color: #94a3b8;
+  font-size: 1.2rem;
+}
+
+.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #ef4444;
+  color: #f87171;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 2rem;
+  text-align: center;
+}
+
+.latestPeriodInfo {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #334155;
+}
+
+.latestPeriodInfo h3 {
+  color: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+.latestPeriodInfo ul {
+  list-style: none;
+  padding: 0;
+  color: #cbd5e1;
+}
+
+.latestPeriodInfo li {
+  margin-bottom: 0.5rem;
+}
+
+.latestPeriodInfo strong {
+  color: #94a3b8;
+  margin-right: 0.5rem;
+}
+
+.logsContainer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #334155;
+}
+
+.logsTitle {
+  color: #f8fafc;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.logsTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 800px;
+}
+
+.logsTable th {
+  background-color: #0f172a;
+  color: #94a3b8;
+  padding: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-bottom: 1px solid #334155;
+  text-transform: uppercase;
+}
+
+.logsTable td {
+  padding: 1rem;
+  color: #cbd5e1;
+  border-bottom: 1px solid #334155;
+  font-size: 0.95rem;
+}
+
+.logsTable tr:last-child td {
+  border-bottom: none;
+}
+
+.logsTable tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+

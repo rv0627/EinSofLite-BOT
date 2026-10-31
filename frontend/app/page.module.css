@@ -1,0 +1,104 @@
+.dashboardGrid {
+  display: grid;
+  gap: 20px;
+  animation: fadeIn 0.6s ease both;
+}
+
+/* --- Top Bar (Metrics & Controls) --- */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.controlsGroup {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* Space between metric card and dropdown */
+}
+
+.dropdownWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.limitSelect {
+  background: var(--bg-darker);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 6px 12px;
+  outline: none;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.limitSelect:hover {
+  border-color: var(--accent-cyan);
+}
+
+/* --- Ticker Grid --- */
+.tickerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* --- Main Content Area --- */
+.mainArea {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+  .topBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .controlsGroup {
+    justify-content: flex-end;
+  }
+
+  .mainArea {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .tickerGrid {
+    grid-template-columns: 1fr;
+  }
+  .controlsGroup {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
